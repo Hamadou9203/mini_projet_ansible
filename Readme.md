@@ -29,6 +29,7 @@ Ce projet consiste en deux étapes pour déployer une application à l'aide d'An
     - Redigez entièrement le contenu du fichier webapp/task/main.yml afin de deployer l'application conteneuriser en utilisant le proxy nginx
       
 3. Lancer le playbook pour déployer l'application
+   '''ansible-playbook nginx_webapp_playbook.yaml --ask-vault-pass'''
 
 ### Vérification
 
