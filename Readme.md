@@ -22,12 +22,7 @@ Ce projet consiste en deux étapes pour déployer une application à l'aide d'An
 ### Étapes à suivre
 
 1. Naviguer dans le répertoire app-template du dépôt.
-2. Compléter les fichiers de configuration :
-
-    - Remplacez les expressions <FIX IT> par les valeurs appropriées dans les fichiers de rôle pour l'application et Nginx.
-    - Assurez-vous que les configurations Ansible pour Docker et Nginx sont correctement définies.
-    - Redigez entièrement le contenu du fichier webapp/task/main.yml afin de deployer l'application conteneuriser en utilisant le proxy nginx
-      
+2. Compléter les fichiers de configuration    
 3. Lancer le playbook pour déployer l'application
    ```
    ansible-playbook nginx_webapp_playbook.yaml --ask-vault-pass
@@ -36,5 +31,6 @@ Ce projet consiste en deux étapes pour déployer une application à l'aide d'An
 ### Vérification
 
 Partie 1 : L'application doit être accessible après le déploiement avec un simple playbook.
+![cover](img/firsplay.png)
 
 Partie 2 : L'application doit être accessible via un proxy Nginx dans un conteneur Docker après avoir complété les fichiers et lancé le playbook.
