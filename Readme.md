@@ -30,8 +30,8 @@ Ce projet consiste en deux étapes pour déployer une application à l'aide d'An
       
 3. Lancer le playbook pour déployer l'application
    ```
-   ansible-playbook nginx_webapp_playbook.yaml --ask-vault-pass'''
-```
+   ansible-playbook nginx_webapp_playbook.yaml --ask-vault-pass
+
 
 ### Vérification
 
