@@ -31,12 +31,16 @@ Ce projet consiste en deux étapes pour déployer une application à l'aide d'An
 ### Vérification
 
 Partie 1 : L'application doit être accessible après le déploiement avec un simple playbook.
+
+
 ![cover](img/firsplay.png)
 ![cover](img/firstapp.png)
 
 
 Partie 2 : L'application doit être accessible via un proxy Nginx dans un conteneur Docker après avoir complété les fichiers et lancé le playbook.
 pour des raisons de securité nous avons decidé de ne pas exposer apache à l'exterieur
+
+
 ![cover](img/containerup.png)
 ![cover](img/secondplay.png)
 ![cover](img/webapp.png)
