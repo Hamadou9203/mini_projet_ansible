@@ -1,0 +1,43 @@
+---
+- name: Définir la variable nginx_root_location en fonction de la distribution
+  set_fact:
+        nginx_root_location: "{{target_dir}}"
+
+- name: Make sur the directory exist
+  file:
+      path: "{{ nginx_root_location }}"
+      state: directory
+
+
+- name: Template index.html-easter_egg.j2 to index.html on target
+  template:
+        src: index.html-easter_egg.j2
+        dest: "{{ nginx_root_location }}/index.html"
+        mode: 0644
+
+- name: Install unzip
+  package:
+        name: unzip
+        state: latest
+
+- name: Unarchive playbook stacker game
+  unarchive:
+        src: playbook_stacker.zip
+        dest: "{{ nginx_root_location }}"
+        mode: 0755
+
+- name: Create Apache container using Docker
+  docker_container:
+        name: "{{ container_name }}"
+        image: httpd
+        recreate: true
+        state: started
+        networks:
+           - name: custom_net 
+#        ports:
+#          - "{{ app_port}}:80"
+        volumes:
+             - "{{ nginx_root_location }}:/usr/local/apache2/htdocs/"
+#  notify: Check HTTP Service
+  tags:
+                - start-apache
